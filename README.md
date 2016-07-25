@@ -1,6 +1,8 @@
 Game Of Life - Kata
 ===================
 
+Andrés Andrade
+
 General installation instructions:
 
 Install build essentials:
