@@ -1,3 +1,32 @@
 <div>Here will go all the HTML magic that will show the <b>Game of Life</b> grid.</div>
-<div>Controller status: {{ controller_loaded || 'not loaded!' }}</div>
+
+<br/>
+<label>
+    Rows:
+    <input type="text" name="rows" ng-model="rows_number" required>
+</label>
+<label>
+    Columns :
+    <input type="text" name="cols" ng-model="cols_numer" required>
+</label>
+<button  ng-click="initialize_matrix(rows_number,cols_numer)">Initialize matrix</button>
+<br/>
+<br/><label>
+    Turn on/off cells "row, col" (Ej. 1,3):
+    <input type="text" name="cell" ng-model="turn_cell"  required>
+</label>
+<button  ng-click="turn_single_cell(turn_cell)">Turn on cells</button>
+<br/>
+<br/>
+<button  ng-click="set_demo_pattern(glidder_pattern,10)">Glider pattern</button>
+<button  ng-click="set_demo_pattern(r_pentomino,10)">The R-pentomino pattern</button>
+<button  ng-click="set_demo_pattern(pulsar_pattern,15)">The pulsar pattern</button>
+<br/>
+<br/>
+<div ng-repeat="col in matrix">
+	<span ng-repeat="cell in col track by $index" ng-class="{ 'live-cell' : cell }">
+	</span>
+</div>
+<br/>
+<button  ng-click="iterate_matrix(matrix)">Iterate next generation</button>
 <div><br><a href="#/">Home</a></div>
